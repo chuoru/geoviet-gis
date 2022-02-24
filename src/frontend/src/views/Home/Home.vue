@@ -1,11 +1,18 @@
 <template>
-	<div class="header-container">
+	<div class="home">
 		<div class="header">
 			<NavBar />
 		</div>
 		<div class="body">	
-			<SideBar />
-			<Map />
+			<div class="sidebar">
+				<SideBar />
+			</div>
+			<!-- <div class="main-content">
+				<h1>maincontent</h1>
+			</div> -->
+			<div class="map">
+				<Map />
+			</div>
 		</div>
 	</div>
 </template>

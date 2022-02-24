@@ -1,7 +1,7 @@
 <template>
   <div>
     <l-map
-      style="height: 100vh; width: 100%"
+      style="height: calc(100vh - 40px);; width: 100%"
       :zoom="zoom"
       :center="center"
       :options="{ boxZoom: true }"

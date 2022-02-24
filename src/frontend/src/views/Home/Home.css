@@ -1,0 +1,9 @@
+/* .home {
+    display: grid;
+    grid-template-rows: 38px 1fr;
+} */
+
+.body {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+}
