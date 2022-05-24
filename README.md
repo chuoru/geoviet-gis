@@ -1,5 +1,5 @@
 # geovietgis
-GeoViet Geography Information System
+Vietnam Geography Information System
 
 ## First apperance 
 Map view (2022/02/20)
