@@ -4,7 +4,7 @@
 		id="sidebar" 
 		title="Sidebar" 
 		shadow
-		no-header-close="false"
+    visible
 	>
       <div class="px-3 py-2">
         <p>

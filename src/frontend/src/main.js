@@ -10,7 +10,7 @@ Vue.use(BootstrapVue);
 import router from './routes/routes';
 import i18n from './plugins/i18n';
 
-import { NONE, ALL } from 'leaflet-freedraw';
+//import { NONE, ALL } from 'leaflet-freedraw';
 Vue.config.productionTip = false;
 
 new Vue({
