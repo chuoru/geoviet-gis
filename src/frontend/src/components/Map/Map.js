@@ -7,6 +7,7 @@ import {
   LPolygon,
   LPolyline,
   LControl,
+  LControlZoom,
 } from "vue2-leaflet";
 
 import LFreeDraw from "vue2-leaflet-freedraw";
@@ -23,6 +24,7 @@ export default {
     LPolyline,
     LControl,
     LFreeDraw,
+    LControlZoom,
   },
   data() {
     return {
