@@ -1,10 +1,11 @@
 import Multiselect from 'vue-multiselect'
-
+import VJstree from 'vue-jstree'
 
 export default {
     name: "SideBar",
     components: {
         Multiselect,
+        VJstree
     },
     data() {
       return {
@@ -73,10 +74,85 @@ export default {
         perPage: 5,
         currentPage: 1,
         totalRows: 1,
+        items: [
+            {
+              "text": "Same but with checkboxes",
+              "children": [
+                {
+                  "text": "initially selected",
+                  "selected": true
+                },
+                {
+                  "text": "custom icon",
+                  "icon": "fa fa-warning icon-state-danger"
+                },
+                {
+                  "text": "initially open",
+                  "icon": "fa fa-folder icon-state-default",
+                  "opened": true,
+                  "children": [
+                    {
+                      "text": "Another node"
+                    }
+                  ]
+                },
+                {
+                  "text": "custom icon",
+                  "icon": "fa fa-warning icon-state-warning"
+                },
+                {
+                  "text": "disabled node",
+                  "icon": "fa fa-check icon-state-success",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "text": "Same but with checkboxes",
+              "opened": true,
+              "children": [
+                {
+                  "text": "initially selected",
+                  "selected": true
+                },
+                {
+                  "text": "custom icon",
+                  "icon": "fa fa-warning icon-state-danger"
+                },
+                {
+                  "text": "initially open",
+                  "icon": "fa fa-folder icon-state-default",
+                  "opened": true,
+                  "children": [
+                    {
+                      "text": "Another node"
+                    }
+                  ]
+                },
+                {
+                  "text": "custom icon",
+                  "icon": "fa fa-warning icon-state-warning"
+                },
+                {
+                  "text": "disabled node",
+                  "icon": "fa fa-check icon-state-success",
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "text": "And wholerow selection"
+            }
+          ]
       } 
     },
     mounted() {
       // Set the initial number of items
       this.totalRows = this.resultTableData.length
     },
+    methods: {
+        itemClick (node) {
+            console.log(node.model.text + ' clicked !')
+        }
+    }
   };

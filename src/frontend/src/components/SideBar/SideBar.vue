@@ -2,16 +2,16 @@
   <div>
     <b-sidebar 
 		id="sidebar" 
-		title="Sidebar" 
 		shadow
     visible
-    width="340px"
+    width="480px"
 	>
       <div>
         <b-tabs>
 
           <!-- first tab of sidebar  -->
           <b-tab title="LỚP BẢN ĐỒ">
+            <v-jstree :data="items" show-checkbox multiple allow-batch whole-row @item-click="itemClick"></v-jstree>
           </b-tab>
 
           <!-- second tab of sidebar -->
