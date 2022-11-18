@@ -1,0 +1,50 @@
+/* ↓↓↓ Bellow is result modal style ↓↓↓ */
+
+/* result table style  */
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+
+/* search result header style */
+.header-class{
+    background-color: powderblue;
+    color: black;
+}
+
+/* close button style */
+button.close {
+    border: 0 none !important;
+    background-color:rgba(0,0,0,0);
+    color: black;
+    font-size: 34px;
+    height: 40px;
+    line-height: 1;
+    margin: 0px 1px;
+    opacity: 0.5;
+    width: 40px;
+}
+
+/* fixed result modal size css */
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    height: 80%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}
+
+
+
