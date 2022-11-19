@@ -1,8 +1,12 @@
 <template>
 	<div>
 		<nav class="main" v-on:click.prevent>
-			<a href="#" class="info" v-on:click="makeActive('info')">Info</a>
-			<i class="fa-solid fa-circle-user fa-xl user-account"></i>
+			<i class="fas fa-home"></i>
+			<a href="#">Dashboard</a>
+			<a href="#">Report</a>
+			<a href="#">Document</a>
+			<a href="#">Contact</a>
+			<i class="fa fa-user user-account"></i>
 		</nav>
 	</div>
 </template>
