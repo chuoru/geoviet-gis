@@ -5,13 +5,13 @@
     no-header 
 		shadow
     visible
-    width="382px"
+    width="480px"
 	>
       <div>
         <b-tabs>
           <!-- first tab of sidebar  -->
           <b-tab title="MAP LAYER">
-            <MapLayer/>
+            <v-jstree :data="items" show-checkbox multiple allow-batch whole-row @item-click="itemClick"></v-jstree>
           </b-tab>
 
           <!-- second tab of sidebar -->
