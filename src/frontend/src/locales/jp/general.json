@@ -7,5 +7,26 @@
 		"stopErrorMessage": "測定停止に失敗しました!",
 		"saveErrorMessage": "保存設定に失敗しました!",
 		"saveSuccessMessage": "設定を正常に保存!"
+	},
+	"sidebarTab": {
+		"mapLayer": "マップレイヤー",
+		"informationRetrieval": "情報検索"
+	},
+	"informationRetrievalTab": {
+		"dikes": "堤防",
+		"beachErosion": "海岸侵食",
+		"saltwaterIntrusion": "海水侵入",
+		"selectProvinces": "都道府県",
+		"dikeLevel": "堤防レベル",
+		"typeToSearch": "入力して検索"
+	},
+	"searchResult": {
+		"searchButton" : "検索",
+		"searchResult": "検索結果",
+		"location": "位置",
+		"dikeCode": "堤防番号",
+		"dikeName": "堤防名",
+		"dikeType": "堤防種類",
+		"length": "長さ"
 	}
 }

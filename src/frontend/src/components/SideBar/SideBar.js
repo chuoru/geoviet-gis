@@ -1,9 +1,13 @@
+import MapLayer from '../../components/MapLayer/MapLayer.vue';
+import InformationRetrieval from '../../components/InformationRetrieval/InformationRetrieval.vue';
 import Multiselect from 'vue-multiselect'
 import VJstree from 'vue-jstree'
 
 export default {
     name: "SideBar",
     components: {
+        MapLayer,
+        InformationRetrieval,
         Multiselect,
         VJstree
     },
@@ -146,9 +150,7 @@ export default {
           ]
       } 
     },
-    mounted() {
-      // Set the initial number of items
-      this.totalRows = this.resultTableData.length
+    computed:{
     },
     methods: {
         itemClick (node) {

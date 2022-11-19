@@ -7,5 +7,28 @@
 		"stopErrorMessage": "Stop measurement failed!",
 		"saveErrorMessage": "Save setting failed!",
 		"saveSuccessMessage": "Save setting successfully!"
+	},
+	"sidebarTab": {
+		"mapLayer": "MAP LAYER",
+		"informationRetrieval": "INFORMATION RETRIEVAL"
+	},
+	"informationRetrievalTab": {
+		"dikes": "Dikes",
+		"beachErosion": "Beach erosion",
+		"saltwaterIntrusion": "Saltwater intrusion",
+		"selectProvinces": "Select Provinces",
+		"dikeLevel": "Dike Levels",
+		"typeToSearch": "Type to search"
+	},
+	"searchResult": {
+		"searchButton" : "Search",
+		"searchResult": "SearchResult",
+		"location": "Location",
+		"dikeCode": "Dike code",
+		"dikeName": "Dike Name",
+		"dikeType": "Dike Type",
+		"length": "Length"
 	}
+
+
 }
