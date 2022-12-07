@@ -13,6 +13,8 @@ import {
 import LFreeDraw from "vue2-leaflet-freedraw";
 import { NONE, ALL } from "leaflet-freedraw";
 import LRuler from "vue2-leaflet-ruler";
+import LDraw from 'leaflet-draw';
+import LDrawToolbar from 'vue2-leaflet-draw-toolbar';
 
 export default {
   name: "Map",
@@ -27,6 +29,8 @@ export default {
     LFreeDraw,
     LControlZoom,
     LRuler,
+    LDraw,
+    LDrawToolbar,
   },
   data() {
     return {
@@ -61,6 +65,14 @@ export default {
           label: "Bearing:",
         },
       },
+      rectangle: {
+        bounds: [[21.022597436866693, 105.83672255501389], [23.022597436866693, 107.83672255501389]],
+        style: { color: 'red', weight: 3 }
+      },
+
+      options: {
+        drawControl: false
+      }
     };
   },
   computed: {
@@ -89,5 +101,29 @@ export default {
       // using the native markers event directly
       console.log(event);
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+    const map = this.$refs.map.mapObject;
+
+
+    const zoomControl = new window.L.Control.boxzoom({
+      position: 'topleft',
+  //     draw: {
+  //       polyline: {
+  //         allowIntersection: false,
+  //         showArea: true
+  //       },
+  //       polygon: false,
+  //       rectangle: false,
+  //       circle: false,
+  //       marker: false
+  //     }
+    });
+
+    map.addControl(zoomControl);
+
+  //   const boxzoom = 
+  });
   },
 };
