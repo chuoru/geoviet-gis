@@ -28,10 +28,25 @@
           <b-card>I am collapsible content!</b-card>
         </b-collapse>
       </l-control>
+      <l-control position="topright">
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-light toggle-menu btn-hover"> <font-awesome-icon icon="fa-solid fa-expand" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-circle-info" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-hand" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-magnifying-glass-minus" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-magnifying-glass-plus" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-draw-polygon" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover" @click="handleDistanceBtn"><font-awesome-icon icon="fa-solid fa-ruler-horizontal" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-print" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-book" /></button>
+          <button type="button" class="btn btn-light toggle-menu btn-hover"><font-awesome-icon icon="fa-solid fa-trash-can" /></button>
+        </div>
+      </l-control>
 
       <l-control-zoom position="bottomright">
       </l-control-zoom>
 
+      <l-ruler :options="rulerOptions" />
     </l-map>
   </div>
 </template>

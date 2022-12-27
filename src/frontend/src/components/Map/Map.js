@@ -12,6 +12,7 @@ import {
 
 import LFreeDraw from "vue2-leaflet-freedraw";
 import { NONE, ALL } from "leaflet-freedraw";
+import LRuler from "vue2-leaflet-ruler";
 
 export default {
   name: "Map",
@@ -25,6 +26,7 @@ export default {
     LControl,
     LFreeDraw,
     LControlZoom,
+    LRuler,
   },
   data() {
     return {
@@ -33,7 +35,32 @@ export default {
       zoom: 14,
       center: [21.022597436866693, 105.83672255501389],
       attribution:
-        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      rulerOptions: {
+        position: "bottomright", // Leaflet control position option
+        circleMarker: {
+          // Leaflet circle marker options for points used in this plugin
+          color: "#0099ff",
+          radius: 2,
+        },
+        lineStyle: {
+          // Leaflet polyline options for lines used in this plugin
+          color: "#0099ff",
+        },
+        lengthUnit: {
+          // You can use custom length units. Default unit is kilometers.
+          display: "km", // This is the display value will be shown on the screen. Example: 'meters'
+          decimal: 2, // Distance result will be fixed to this value.
+          factor: null, // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)
+          label: "Distance:",
+        },
+        angleUnit: {
+          display: "&deg;", // This is the display value will be shown on the screen. Example: 'Gradian'
+          decimal: 2, // Bearing result will be fixed to this value.
+          factor: null, // This option is required to customize angle unit. Specify solid angle value for angle unit. Example: 400 (for gradian).
+          label: "Bearing:",
+        },
+      },
     };
   },
   computed: {
