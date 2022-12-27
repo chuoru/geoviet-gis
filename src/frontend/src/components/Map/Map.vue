@@ -1,6 +1,7 @@
 <template>
   <div>
     <l-map
+      ref="map"
       style="height: 96vh; width: 100%"
       :zoom="zoom"
       :center="center"
@@ -45,6 +46,9 @@
 
       <l-control-zoom position="bottomright">
       </l-control-zoom>
+
+      <!-- <l-rectangle :bounds="rectangle.bounds" :l-style="rectangle.style" :interactive="true" :bubblingMouseEvents="true"></l-rectangle> -->
+      <l-draw-toolbar position="topleft"/>
 
       <l-ruler :options="rulerOptions" />
     </l-map>

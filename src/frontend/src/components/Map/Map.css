@@ -43,3 +43,15 @@
     color: red;
 }
 
+
+  .leaflet-draw-draw-OK_ICON{
+    background-image: url("/static/tunnels/images/ok-btn.png") !important;
+    background-size: 25px auto !important;
+  }
+
+  .leaflet-draw-draw-NOK_ICON{
+    background-image: url("/static/tunnels/images/nok-btn.png") !important;
+    background-size: 25px auto !important;
+
+  }
+
