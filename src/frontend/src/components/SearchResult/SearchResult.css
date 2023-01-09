@@ -46,5 +46,7 @@ button.close {
     overflow-y: scroll;
 }
 
-
-
+.plot-container {
+	height: 95%;
+	padding-top: 10px;
+}

@@ -10,3 +10,6 @@ button.close {
     opacity: 0.5;
     width: 40px;
 }
+.tab-title {
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif !important;
+}

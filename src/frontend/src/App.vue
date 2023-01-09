@@ -14,7 +14,7 @@ export default {
 
 <style>
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: center; */
@@ -24,7 +24,7 @@ export default {
 /* Apply for all screen biger than iPad Pro */
 @media screen and (min-device-width: 1025px) {
 	#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: center; */

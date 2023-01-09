@@ -1,53 +1,16 @@
 /* ↓↓↓ Bellow is SideBar TRA CỨU THÔNG TIN tab style ↓↓↓ */
+#separator {
+  background-color: #beb9b9;
+  background-position: center;
+  width: 100%;
+  height: 1px;
 
-/* chose one in 3 type of search css */
-.type-of-search {
-    display: block;
-    position: relative;
-    padding: 20px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  /* Prevent the browser's built-in drag from interfering */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-label {
-    font: 1rem 'Fira Sans', sans-serif;
+.search-summary {
+  color: #1054ac
 }
-
-input {
-    margin: .4rem;
-}
-
-
-/* selectable multi provinces css */
-.chose-provinces{
-display: grid;
-grid-template-columns: 3fr 7fr;
-}
-
-
-/* Style the search field */
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-/* Tìm kiếm button css */
-button {  
-    float: right;
-}
-
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-

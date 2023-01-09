@@ -1,123 +1,97 @@
 <template>
-  <b-container fluid>
-    <!-- chose one in 3 types of search -->
-    <div class="type-of-search">
-      <input
-        type="radio"
-        id="dedieu"
-        value="DeDieu"
-        v-model="oneInThreeTypeOfSearchPicked"
-      />
-      <label for="one">Dikes</label>
-      <br />
-      <input
-        type="radio"
-        id="xoilo"
-        value="XoiLo"
-        v-model="oneInThreeTypeOfSearchPicked"
-      />
-      <label for="two">Beach erosion</label>
-      <br />
-      <input
-        type="radio"
-        id="xamnhapman"
-        value="XamNhapMan"
-        v-model="oneInThreeTypeOfSearchPicked"
-      />
-      <label for="three">Saltwater intrusion.</label>
-      <br />
+  <div>
+    <div class="row m-1">
+      <div class="input-group">
+        <input 
+          type="text" 
+          class="form-control" 
+          aria-describedby="addon-wrapping"
+        >
+        <button type="button" class="btn btn-primary"> 
+          <font-awesome-icon icon="fa fa-search"/>
+        </button>
+      </div>
     </div>
-
-    <!-- selectable multi provinces -->
-    <!-- <div class="d-flex p-2" id="chose-provinces">
-      <span class="w-30 p-3">Chọn tỉnh</span>
-      <multiselect
-        class="w-70 p-3"
-        v-model="selectedProvinces"
-        :options="provinces"
-        :multiple="true"
-        :close-on-select="false"
-        :clear-on-select="false"
-        :preserve-search="true"
-        placeholder="Pick some"
-        label="name"
-        track-by="name"
-        :preselect-first="true"
-      >
-        <template slot="selection" slot-scope="{ values, isOpen }">
-          <span
-            class="multiselect__single"
-            v-if="values.length &amp;&amp; !isOpen"
+    <div class="row m-1">
+      <div class="col">
+        <div class="row">
+          <b>Loại quan trắc:</b>
+        </div>
+        <div class="row">
+          <b-dropdown
+            split
+            split-variant="outline-primary"
+            variant="primary"
+            text="Tất cả"
+            class="m-2"
           >
-            {{ values.length }} options selected
-          </span>
-        </template>
-      </multiselect>
-    </div> -->
-
-    <b-row>
-      <!-- selectable multi provinces (done functionality but having weird layout, display ) -->
-      <b-col lg="12" class="my-1">
-        <b-form-group
-          label="Select Provinces"
-          label-for="sort-by-select"
-          label-cols-sm="4"
-          class="mb-0 d-flex"
-          v-slot="{ ariaDescribedby }"
-        >
-          <b-input-group size="sm" class="h-100">
-            <b-form-select
-              id="sort-by-select"
-              v-model="selectedProvinces"
-              :options="ProvincesOptions"
-              :aria-describedby="ariaDescribedby"
-              class="w-100"
-            >
-            </b-form-select>
-          </b-input-group>
-        </b-form-group>
-      </b-col>
-
-      <b-col lg="12" class="my-1">
-        <b-form-group
-          label="Dike Level"
-          label-for="sort-by-select"
-          label-cols-sm="4"
-          class="mb-0 d-flex"
-          v-slot="{ ariaDescribedby }"
-        >
-          <b-input-group size="sm" class="h-100">
-            <b-form-select
-              id="sort-by-select"
-              v-model="dikeLevelselected"
-              :options="dikeLevelOptions"
-              :aria-describedby="ariaDescribedby"
-              class="w-100"
-            >
-            </b-form-select>
-          </b-input-group>
-        </b-form-group>
-      </b-col>
-      
-      <!-- searching key input -->
-      <b-col lg="12" class="my-1">
-        <b-form-group
-          class="mb-0"
-        >
-          <b-input-group size="sm">
-            <b-form-input
-              id="filter-input"
-              v-model="filter"
-              type="search"
-              placeholder="Type to Search"
-              class="p-2"
-            ></b-form-input>
-          </b-input-group>
-        </b-form-group>
-      </b-col>
-    </b-row>
+            <b-dropdown-item href="#">Action</b-dropdown-item>
+            <b-dropdown-item href="#">Another action</b-dropdown-item>
+            <b-dropdown-item href="#">Something else here...</b-dropdown-item>
+          </b-dropdown>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <b>Huyện/Tp:</b>
+        </div>
+        <div class="row">
+          <b-dropdown
+            split
+            split-variant="outline-primary"
+            variant="primary"
+            text="Tất cả"
+            class="m-2"
+          >
+            <b-dropdown-item href="#">Action</b-dropdown-item>
+            <b-dropdown-item href="#">Another action</b-dropdown-item>
+            <b-dropdown-item href="#">Something else here...</b-dropdown-item>
+          </b-dropdown>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <b>Xã/Phường:</b>
+        </div>
+        <div class="row">
+          <b-dropdown
+            split
+            split-variant="outline-primary"
+            variant="primary"
+            text="Tất cả"
+            class="m-2"
+          >
+            <b-dropdown-item href="#">Action</b-dropdown-item>
+            <b-dropdown-item href="#">Another action</b-dropdown-item>
+            <b-dropdown-item href="#">Something else here...</b-dropdown-item>
+          </b-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="search-summary">Tìm thấy {{ searchSummary }} kết quả.</div>
+    </div>
+    <div class="row m-2">
+      <div id="separator"></div>
+    </div>
+    <div class="row m-1">
+      <b-table
+        striped
+        hover
+        bordered
+        :items="resultTableData"
+        :fields="fields"
+        :current-page="currentPage"
+        :per-page="perPage"
+        :sort-by.sync="sortBy"
+        responsive="sm"
+      ></b-table>
+    </div>
+  </div>
+  <!-- <b-container fluid>
+    
     <SearchResult/>
-  </b-container>
+  </b-container> -->
 </template>
 <script src="./InformationRetrieval.js"></script>
 <style src="./InformationRetrieval.css" scope></style>

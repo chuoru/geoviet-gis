@@ -7,7 +7,10 @@ import {
   LPolygon,
   LPolyline,
   LControl,
+  LMarker,
+  LWMSTileLayer,
   LControlZoom,
+  LPopup
 } from "vue2-leaflet";
 
 import LFreeDraw from "vue2-leaflet-freedraw";
@@ -15,6 +18,7 @@ import { NONE, ALL } from "leaflet-freedraw";
 import LRuler from "vue2-leaflet-ruler";
 import LDraw from 'leaflet-draw';
 import LDrawToolbar from 'vue2-leaflet-draw-toolbar';
+import SearchResult from '../../components/SearchResult/SearchResult.vue'
 
 export default {
   name: "Map",
@@ -28,43 +32,23 @@ export default {
     LControl,
     LFreeDraw,
     LControlZoom,
+    "l-wms-tile-layer": LWMSTileLayer,
+    LMarker,
     LRuler,
     LDraw,
     LDrawToolbar,
+    LPopup,
+    SearchResult
   },
   data() {
     return {
       initialCoordinates: latLng(21.022597436866693, 105.83672255501389),
       isActive: false,
-      zoom: 14,
+      zoom: 7,
+      positions: [{position: [21.022597436866693, 105.83672255501389]}],
       center: [21.022597436866693, 105.83672255501389],
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      rulerOptions: {
-        position: "bottomright", // Leaflet control position option
-        circleMarker: {
-          // Leaflet circle marker options for points used in this plugin
-          color: "#0099ff",
-          radius: 2,
-        },
-        lineStyle: {
-          // Leaflet polyline options for lines used in this plugin
-          color: "#0099ff",
-        },
-        lengthUnit: {
-          // You can use custom length units. Default unit is kilometers.
-          display: "km", // This is the display value will be shown on the screen. Example: 'meters'
-          decimal: 2, // Distance result will be fixed to this value.
-          factor: null, // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)
-          label: "Distance:",
-        },
-        angleUnit: {
-          display: "&deg;", // This is the display value will be shown on the screen. Example: 'Gradian'
-          decimal: 2, // Bearing result will be fixed to this value.
-          factor: null, // This option is required to customize angle unit. Specify solid angle value for angle unit. Example: 400 (for gradian).
-          label: "Bearing:",
-        },
-      },
       rectangle: {
         bounds: [[21.022597436866693, 105.83672255501389], [23.022597436866693, 107.83672255501389]],
         style: { color: 'red', weight: 3 }
@@ -72,7 +56,38 @@ export default {
 
       options: {
         drawControl: false
-      }
+      },
+      baseUrl: 'http://geovietmap.com:8282/geoserver/luuvucsonghong/wms',
+      layers: [
+        {
+          name: 'Base',
+          visible: true,
+          format: 'image/png',
+          layers: 'luuvucsonghong:nen_diaphantinh',
+          transparent: false,
+          opacity: 1.0,
+          attribution: "Weather data © 2012 IEM Nexrad"
+        },
+        {
+          name: 'Rivers',
+          visible: true,
+          format: 'image/png',
+          layers: '	luuvucsonghong:mangdongchay',
+          transparent: false,
+          opacity: 0.5,
+          attribution: "Weather data © 2012 IEM Nexrad"
+        },
+        {
+          name: 'Base#2',
+          visible: true,
+          format: 'image/png',
+          layers: 'luuvucsonghong:ranhgioitieuluuvuc',
+          transparent: false,
+          opacity: 0.2,
+          attribution: "Weather data © 2012 IEM Nexrad"
+        },
+      ],
+      osmVisible: false
     };
   },
   computed: {
@@ -87,6 +102,20 @@ export default {
     },
   },
   methods: {
+    onModifyTileLayer(mode) {
+      if (mode === "osm") {
+        this.osmVisible = true;
+        this.layers[0].visible = false;
+        this.layers[1].visible = true;
+      } else if (mode == "geoviet") {
+        this.osmVisible = false;
+        this.layers[0].visible = true;
+        this.layers[1].visible = true;
+      }
+    },
+    onDetailLinkClick() {
+
+    },
     getUrl() {
       // var tile = 'mapbox/satellite-v9';
       // var accessToken = 'pk.eyJ1IjoiY2h1b3J1IiwiYSI6ImNrenRpMXo1cDQxMTcybnFyeGFhdDhnNGIifQ.rRBwxWqZo3l3PRVHLg61VQ';
@@ -104,26 +133,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-    const map = this.$refs.map.mapObject;
 
-
-    const zoomControl = new window.L.Control.boxzoom({
-      position: 'topleft',
-  //     draw: {
-  //       polyline: {
-  //         allowIntersection: false,
-  //         showArea: true
-  //       },
-  //       polygon: false,
-  //       rectangle: false,
-  //       circle: false,
-  //       marker: false
-  //     }
-    });
-
-    map.addControl(zoomControl);
-
-  //   const boxzoom = 
   });
   },
 };
